@@ -32,14 +32,14 @@ extern stack_t *st;
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 int openfile(char *path);
-void op_push(stack_t **t, int x);
-void op_pall(stack_t **st, int x);
-void op_f(char *s, int num);
+void op_push(stack_t **t, unsigned int x);
+void op_pall(stack_t **st, unsigned int x);
+void op_f(char *s, unsigned int num);
 int read_file(FILE *fd);
 void initialisation(void);
-void op_pint(stack_t **st, int x);
+void op_pint(stack_t **st, unsigned int x);
 #endif

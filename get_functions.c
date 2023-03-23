@@ -9,7 +9,7 @@
  * @nu: line
  * Return: Nothing
  */
-void op_f(char *s, int nu)
+void op_f(char *s, unsigned int nu)
 {
 
 	__attribute__((unused)) instruction_t ops[3] = {

@@ -48,7 +48,8 @@ int read_file(FILE *fd)
 {
         char line[BUFFER_MAX_LENGTH];
         char *p, d[] = " ";
-        int c, lin = 0;
+        int c;
+	unsigned int lin = 0;
 
         while (fgets(line, sizeof(line), fd))
         {
