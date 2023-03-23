@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #define BUFFER_MAX_LENGTH 1024
-stack_t *st;
+stack_t *st = NULL;
 /**
  * main - entry
  * Description: open a monty file and execute it
