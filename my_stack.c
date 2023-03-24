@@ -16,7 +16,6 @@ stack_t *st = NULL;
 int main(int ac, char *av[])
 {
 	FILE *fd;
-	int res;
 
 	if (ac != 2)
 	{
@@ -29,7 +28,8 @@ int main(int ac, char *av[])
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	res = read_file(fd);
-	return (res);
+	read_file(fd);
+	fclose(fd);
+	return (0);
 
 }

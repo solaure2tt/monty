@@ -4,10 +4,44 @@
 #include <string.h>
 #include <stddef.h>
 /**
+ * other_op - case of other opcode
+ * Description: case of pint, pall, pop and swap
+ * @ch: opcode
+ * @li: line
+ * Return: 0 or 1
+ */
+int other_op(char *ch, unsigned int li)
+{
+	if (strcmp(ch, "pint") == 0)
+	{
+		op_f("pint", li);
+	}
+	else if (strcmp(ch, "pall") == 0)
+	{
+		op_f("pall", li);
+	}
+	else if (strcmp(ch, "pop") == 0)
+	{
+		op_f("pop", li);
+	}
+	else if (strcmp(ch, "swap") == 0)
+		op_f("swap", li);
+	else if (strcmp(ch, "add") == 0)
+		op_f("add", li);
+	else if (strcmp(ch, "nop") == 0)
+		op_f("nop", li);
+	else
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", li, ch);
+		return (1);
+	}
+	return (0);
+}
+/**
  * is_integer - verify if it is an integer
  * Description: verify if a string is integer
  * @c: string
- * Return: 0 or 1
+ * Return: 0 or 10)
  */
 int is_integer(char *c)
 {
@@ -36,7 +70,7 @@ int is_integer(char *c)
 int read_file(FILE *fd)
 {
 	char line[1024], *p, d[] = " ";
-	unsigned int lin = 0;
+	unsigned int x, lin = 0;
 
 	while (fgets(line, sizeof(line), fd))
 	{
@@ -59,14 +93,11 @@ int read_file(FILE *fd)
 					}
 					break;
 				}
-				else if (strstr(p, "pint") != NULL)
+				else
 				{
-					op_f("pint", lin);
-					break;
-				}
-				else if (strstr(p, "pall") != NULL)
-				{
-					op_f("pall", lin);
+					x = other_op(p, lin);
+					if (x == 1)
+						exit(EXIT_FAILURE);
 					break;
 				}
 			}

@@ -39,4 +39,8 @@ void op_f(char *s, unsigned int num);
 int read_file(FILE *fd);
 void initialisation(void);
 void op_pint(stack_t **st, unsigned int x);
+void op_pop(stack_t **t, unsigned int x);
+void op_swap(stack_t **t, unsigned int x);
+void op_add(stack_t **t, unsigned int x);
+void op_nop(stack_t **t, unsigned int x);
 #endif

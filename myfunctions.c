@@ -44,14 +44,14 @@ void op_push(stack_t **t, unsigned int x)
  */
 void op_pall(stack_t **h, __attribute__((unused)) unsigned int x)
 {
-	stack_t **t = h;
+	stack_t *t = *h;
 
-	if (*t != NULL)
+	if (t != NULL)
 	{
-		while (*t != NULL)
+		while (t != NULL)
 		{
-			fprintf(stdout, "%d\n", (*t)->n);
-			*t = (*t)->next;
+			fprintf(stdout, "%d\n", (t)->n);
+			t = (t)->next;
 		}
 	}
 }
@@ -73,5 +73,76 @@ void op_pint(stack_t **h, __attribute__((unused)) unsigned int x)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", x);
 		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * op_pop - remove an element in a stack
+ * Description: remove an element in a top of stack
+ * @t: stack
+ * @x: line
+ * Return: nothing
+ */
+void op_pop(stack_t **t, unsigned int x)
+{
+	stack_t *tmp;
+
+	tmp = *t;
+	if (tmp == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack", x);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		if (tmp->next == NULL)
+		{
+			*t = NULL;
+			free(tmp);
+		}
+		else
+		{
+			(*t) = tmp->next;
+			(*t)->prev = NULL;
+			free(tmp);
+		}
+	}
+}
+
+/**
+ * op_swap - swap element in a stack
+ * Description: swap the two element in a top of stack
+ * @t: stack
+ * @x: line
+ * Return: nothing
+ */
+void op_swap(stack_t **t, unsigned int x)
+{
+	stack_t *node, *tmp;
+
+	tmp = *t;
+	if (tmp == NULL || tmp->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", x);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		node = tmp->next;
+		if (tmp->next->next == NULL)
+		{
+			tmp->next = node->next;
+			node->next = tmp;
+			tmp->prev = node;
+			*t = node;
+		}
+		else
+		{
+			tmp->next = node->next;
+			node->next->prev = tmp;
+			node->next = tmp;
+			tmp->prev = node;
+			*t = node;
+		}
 	}
 }
