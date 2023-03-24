@@ -47,7 +47,7 @@ int read_file(FILE *fd)
 				}
 				else
 				{
-					fprintf(sterr, "L%d: unknown instruction %s\n", lin, p);
+					fprintf(stderr, "L%d: unknown instruction %s", lin, p);
 					exit(EXIT_FAILURE);
 				}
 			}
