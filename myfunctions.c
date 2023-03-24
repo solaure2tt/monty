@@ -8,6 +8,7 @@
 /**
  * op_push - add a new element in a stack
  * Description: add a new element in a top of stack
+ * @t: stack
  * @x: inteer to add
  * Return: nothing
  */
@@ -36,7 +37,7 @@ void op_push(stack_t **t, unsigned int x)
 
 
 /**
- * op_pall - print stack 
+ * op_pall - print stack
  * Description: prints all the elements of a stack
  * @h: stack
  * @x: line
@@ -65,9 +66,9 @@ void op_pall(stack_t **h, __attribute__((unused)) unsigned int x)
  */
 void op_pint(stack_t **h, __attribute__((unused)) unsigned int x)
 {
-        stack_t **t = h;
+	stack_t **t = h;
 
-        if (*t != NULL)
+	if (*t != NULL)
 		printf("%d\n", (*t)->n);
 	else
 	{

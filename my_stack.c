@@ -6,7 +6,6 @@
 #include <stddef.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#define BUFFER_MAX_LENGTH 1024
 stack_t *st = NULL;
 /**
  * main - entry
@@ -15,7 +14,6 @@ stack_t *st = NULL;
  * @av:list of arguments
  * Return: an integer
  */
-extern void initialisation(void);
 
 int main(int ac, char *av[])
 {
@@ -24,13 +22,13 @@ int main(int ac, char *av[])
 
 	if (ac != 2)
 	{
-		fprintf(stderr,"USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr,"Error: Can't open file %s", av[1]);
+		fprintf(stderr, "Error: Can't open file %s", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	res = read_file(fd);

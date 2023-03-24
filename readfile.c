@@ -6,7 +6,6 @@
 #include <stddef.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#define BUFFER_MAX_LENGTH 1024
 
 /**
  * _isdigit - function
@@ -46,36 +45,29 @@ int _isdigit(char *c)
  */
 int read_file(FILE *fd)
 {
-        char line[BUFFER_MAX_LENGTH];
-        char *p, d[] = " ";
-        int c;
+	char line[1024], *p, d[] = " ";
 	unsigned int lin = 0;
 
-        while (fgets(line, sizeof(line), fd))
-        {
-                lin++;
-                if (strcmp(line, "") == 0)
-                        continue;
-                else
-                {
-                        p = strtok(line, d);
-                        while (p != NULL)
-                        {
-                                c = 1;
-                                if (strcmp(p, "push") == 0)
-                                {
-                                        p = strtok(NULL, d);
-                                        if (p != NULL)
-                                                op_f("push", atoi(p));
-                                        else
+	while (fgets(line, sizeof(line), fd))
+	{
+		lin++;
+		if (strcmp(line, "") != 0)
+		{
+			p = strtok(line, d);
+			while (p != NULL)
+			{
+				if (strcmp(p, "push") == 0)
+				{
+					p = strtok(NULL, d);
+					if (p != NULL)
+						op_f("push", atoi(p));
+					else
 					{
-                                                fprintf(stderr, "L%d: usage: push integer\n", lin);
+						fprintf(stderr, "L%d: usage: push integer\n", lin);
 						exit(EXIT_FAILURE);
 					}
-                                        c++;
-                                        if (c == 2)
-                                                break;
-                                }
+					break;
+				}
 				else if (strstr(p, "pint") != NULL)
 				{
 					op_f("pint", lin);
@@ -87,7 +79,7 @@ int read_file(FILE *fd)
 					break;
 				}
 			}
-                }
-        }
-        return (0);
+		}
+	}
+	return (0);
 }

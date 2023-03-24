@@ -27,7 +27,7 @@ void op_f(char *s, unsigned int nu)
 		(ops[1].f)(&st, nu);
 	}
 	if (strcmp(s, "pint") == 0)
-        {
-                (ops[2].f)(&st, nu);
-        }
+	{
+		(ops[2].f)(&st, nu);
+	}
 }
