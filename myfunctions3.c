@@ -18,7 +18,7 @@ void op_pchar(stack_t **t, unsigned int x)
 	tmp = *t;
 	if (tmp == NULL)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack too short\n", x);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", x);
 		exit(EXIT_FAILURE);
 	}
 	else if (tmp->n > 127 || tmp->n < 0)
