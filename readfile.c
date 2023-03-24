@@ -13,23 +13,25 @@
 int other_op(char *ch, unsigned int li)
 {
 	if (strcmp(ch, "pint") == 0)
-	{
 		op_f("pint", li);
-	}
 	else if (strcmp(ch, "pall") == 0)
-	{
 		op_f("pall", li);
-	}
 	else if (strcmp(ch, "pop") == 0)
-	{
 		op_f("pop", li);
-	}
 	else if (strcmp(ch, "swap") == 0)
 		op_f("swap", li);
 	else if (strcmp(ch, "add") == 0)
 		op_f("add", li);
 	else if (strcmp(ch, "nop") == 0)
 		op_f("nop", li);
+	else if (strcmp(ch, "sub") == 0)
+		op_f("sub", li);
+	else if (strcmp(ch, "div") == 0)
+		op_f("div", li);
+	else if (strcmp(ch, "mul") == 0)
+		op_f("mul", li);
+	else if (strcmp(ch, "mod") == 0)
+		op_f("mod", li);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", li, ch);
@@ -76,10 +78,10 @@ int read_file(FILE *fd)
 	{
 		lin++;
 		line[strlen(line) - 1] = '\0';
-		if (strcmp(line, "") != 0)
+		if (strcmp(line, "") != 0 && line[0] != '#')
 		{
 			p = strtok(line, d);
-			while (p != NULL)
+			while (p != NULL && p[0] != '#')
 			{
 				if (strcmp(p, "push") == 0)
 				{

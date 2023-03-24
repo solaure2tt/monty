@@ -43,4 +43,8 @@ void op_pop(stack_t **t, unsigned int x);
 void op_swap(stack_t **t, unsigned int x);
 void op_add(stack_t **t, unsigned int x);
 void op_nop(stack_t **t, unsigned int x);
+void op_sub(stack_t **t, unsigned int x);
+void op_div(stack_t **t, unsigned int x);
+void op_mul(stack_t **t, unsigned int x);
+void op_mod(stack_t **t, unsigned int x);
 #endif

@@ -12,31 +12,27 @@
 void op_f(char *s, unsigned int nu)
 {
 
-	__attribute__((unused)) instruction_t ops[6] = {
+	__attribute__((unused)) instruction_t ops[10] = {
 		{"push", &op_push},
 		{"pall", &op_pall},
 		{"pint", &op_pint},
 		{"pop", &op_pop},
 		{"swap", &op_swap},
-		{"add", &op_add}
+		{"add", &op_add},
+		{"sub", &op_sub},
+		{"div", &op_div},
+		{"mul", &op_mul},
+		{"mod", &op_mod}
 	};
 
 	if (strcmp(s, "push") == 0)
-	{
 		(ops[0].f)(&st, nu);
-	}
 	if (strcmp(s, "pall") == 0)
-	{
 		(ops[1].f)(&st, nu);
-	}
 	if (strcmp(s, "pint") == 0)
-	{
 		(ops[2].f)(&st, nu);
-	}
 	if (strcmp(s, "pop") == 0)
-	{
 		(ops[3].f)(&st, nu);
-	}
 	if (strcmp(s, "swap") == 0)
 		(ops[4].f)(&st, nu);
 	if (strcmp(s, "add") == 0)
@@ -44,6 +40,14 @@ void op_f(char *s, unsigned int nu)
 	if (strcmp(s, "nop") == 0)
 	{
 	}
+	if (strcmp(s, "sub") == 0)
+		(ops[6].f)(&st, nu);
+	if (strcmp(s, "div") == 0)
+		(ops[7].f)(&st, nu);
+	if (strcmp(s, "mul") == 0)
+		(ops[8].f)(&st, nu);
+	if (strcmp(s, "mod") == 0)
+		(ops[9].f)(&st, nu);
 }
 
 /**
