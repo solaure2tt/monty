@@ -50,7 +50,7 @@ void op_pall(stack_t **h, __attribute__((unused)) unsigned int x)
 	{
 		while (*t != NULL)
 		{
-			printf("%d\n", (*t)->n);
+			fprintf(stdout, "%d\n", (*t)->n);
 			*t = (*t)->next;
 		}
 	}
@@ -68,7 +68,7 @@ void op_pint(stack_t **h, __attribute__((unused)) unsigned int x)
 	stack_t **t = h;
 
 	if (*t != NULL)
-		printf("%d\n", (*t)->n);
+		fprintf(stdout, "%d\n", (*t)->n);
 	else
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", x);
