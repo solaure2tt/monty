@@ -12,14 +12,13 @@
 void op_f(char *s, unsigned int nu)
 {
 
-	__attribute__((unused)) instruction_t ops[7] = {
+	__attribute__((unused)) instruction_t ops[6] = {
 		{"push", &op_push},
 		{"pall", &op_pall},
 		{"pint", &op_pint},
 		{"pop", &op_pop},
 		{"swap", &op_swap},
-		{"add", &op_add},
-		{"nop", &op_nop}
+		{"add", &op_add}
 	};
 
 	if (strcmp(s, "push") == 0)
@@ -43,7 +42,8 @@ void op_f(char *s, unsigned int nu)
 	if (strcmp(s, "add") == 0)
 		(ops[5].f)(&st, nu);
 	if (strcmp(s, "nop") == 0)
-		(ops[6].f)(&st, nu);
+	{
+	}
 }
 
 /**
@@ -72,13 +72,3 @@ void op_add(stack_t **t, unsigned int x)
 	}
 }
 
-/**
- * op_nop - nothing in a stack
- * Description: nothing in the stack
- * @t: stack
- * @x: line
- * Return: nothing
- */
-void op_nop(__attribute__((unused)) stack_t **t, __attribute__((unused)) unsigned int x)
-{
-}
