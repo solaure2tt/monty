@@ -45,11 +45,6 @@ int read_file(FILE *fd)
 					op_f("pall", lin);
 					break;
 				}
-				else
-				{
-					fprintf(stderr, "L%d: unknown instruction %s", lin, p);
-					exit(EXIT_FAILURE);
-				}
 			}
 		}
 	}
