@@ -1,11 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 stack_t *st = NULL;
 
 /**
