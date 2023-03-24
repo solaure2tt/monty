@@ -90,7 +90,7 @@ void op_pop(stack_t **t, unsigned int x)
 	tmp = *t;
 	if (tmp == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack", x);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", x);
 		exit(EXIT_FAILURE);
 	}
 	else
