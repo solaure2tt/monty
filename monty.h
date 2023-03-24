@@ -1,5 +1,5 @@
-#ifndef MONTY
-#define MONTY
+#ifndef MONTY_H
+#define MONTY_H
 #include <stdio.h>
 
 /**
@@ -16,12 +16,9 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-#ifdef DEFINE_VARIABLES
-#define EXTERN
-#else
-#define EXTERN extern
-#endif
+
 extern stack_t *st;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode

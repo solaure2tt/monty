@@ -8,36 +8,6 @@
 #include <sys/wait.h>
 
 /**
- * _isdigit - function
- * Description: function that checks for digit
- * @c: parameter
- * Return: 1 if true 0 if false
- */
-int _isdigit(char *c)
-{
-	int r = 1;
-	int i = strlen(c);
-	int j;
-
-	j = 0;
-	printf("taille de %s est %d\n", c, i);
-	if (i == 0)
-		return (0);
-	while (j < i)
-	{
-		if (c[j] >= '0' && c[j] <= '9')
-			continue;
-		else
-		{
-			r = 0;
-			break;
-		}
-		j++;
-	}
-	return (r);
-}
-
-/**
  * read_file - read a file
  * Description: read a file line by line
  * @fd: descriptor of the file to read

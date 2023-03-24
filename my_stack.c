@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 stack_t *st = NULL;
+
 /**
  * main - entry
  * Description: open a monty file and execute it
@@ -28,7 +29,7 @@ int main(int ac, char *av[])
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	res = read_file(fd);
