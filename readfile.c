@@ -32,6 +32,10 @@ int other_op(char *ch, unsigned int li)
 		op_f("mul", li);
 	else if (strcmp(ch, "mod") == 0)
 		op_f("mod", li);
+	else if (strcmp(ch, "pchar") == 0)
+		op_f("pchar", li);
+	else if (strcmp(ch, "pstr") == 0)
+		op_f("pstr", li);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", li, ch);

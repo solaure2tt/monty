@@ -48,6 +48,8 @@ void op_f(char *s, unsigned int nu)
 		(ops[8].f)(&st, nu);
 	if (strcmp(s, "mod") == 0)
 		(ops[9].f)(&st, nu);
+	else
+		op_f2(s, nu);
 }
 
 /**
@@ -76,3 +78,19 @@ void op_add(stack_t **t, unsigned int x)
 	}
 }
 
+/**
+ * op_f2 - get function
+ * Description: get the op code to execute
+ * @s: opcode
+ * @nu: line
+ * Return: Nothing
+ */
+void op_f2(char *s, unsigned int nu)
+{
+	instruction_t ops[2] = {{"pchar", &op_pchar}, {"pstr", &op_pstr}};
+
+	if (strcmp(s, "pchar") == 0)
+		(ops[0].f)(&st, nu);
+	if (strcmp(s, "pstr") == 0)
+		(ops[1].f)(&st, nu);
+}

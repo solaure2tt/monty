@@ -36,6 +36,7 @@ int openfile(char *path);
 void op_push(stack_t **t, unsigned int x);
 void op_pall(stack_t **st, unsigned int x);
 void op_f(char *s, unsigned int num);
+void op_f2(char *s, unsigned int num);
 int read_file(FILE *fd);
 void initialisation(void);
 void op_pint(stack_t **st, unsigned int x);
@@ -47,4 +48,8 @@ void op_sub(stack_t **t, unsigned int x);
 void op_div(stack_t **t, unsigned int x);
 void op_mul(stack_t **t, unsigned int x);
 void op_mod(stack_t **t, unsigned int x);
+void op_pchar(stack_t **t, unsigned int x);
+void op_pstr(stack_t **t, unsigned int x);
+void op_rotl(stack_t **t, unsigned int x);
+void op_rotr(stack_t **t, unsigned int x);
 #endif
